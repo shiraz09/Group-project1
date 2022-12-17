@@ -960,7 +960,7 @@ int main()
     cout << "Hello Customer! " << userName << endl;
     cout << "Welcome to Car Rental System!" << endl
          << endl;
-
+    cout<<"try add"<<endl;
     cout << "Please press '1' to book a car" << endl;
     cout << "Please press '2' to exit" << endl;
 
