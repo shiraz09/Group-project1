@@ -38,7 +38,45 @@ using std::left;
 using std::right;
 
 #define TOTAL_CARS 4
-
+Worker* initialWorkers(string filename) // Initialising the workers in the company according to stored file, if no workers yet return an empty array
+{
+    Worker* workers = NULL;
+    ifstream in(filename, ios::in);
+    if (!in)
+    {
+        cout << "Error, check file ";
+        return 0;
+    }
+    string temp;
+    int WorkersCount = SizeOfFile(filename) / 2;
+    if (WorkersCount == 0)
+        return workers;
+    workers = new Worker[WorkersCount];
+    if (!workers)
+    {
+        cout << "NO MEMO";
+        return 0;
+    }
+    in.close();
+    in.open(filename, ios::in);
+    if (!in)
+    {
+        cout << "Error, check file ";
+        return 0;
+    }
+    long id; int seniority, i = 0; float hours;
+    while (!in.eof())
+    {
+        in >> temp;
+        if (temp == "\0")
+            continue;
+        in >> id >> seniority >> hours;
+        workers[i].set(temp, id, seniority, hours);
+        i++;
+    }
+    in.close();
+    return workers;
+}
 // Base class
 class DatabaseCar
 {
@@ -1321,6 +1359,7 @@ int main()
         suvFinalCar = Suv();
         sedanFinalCar = Sedan();
     }
+    cout << "check";
 
     fptr.close();
     delete[]carMileage;
