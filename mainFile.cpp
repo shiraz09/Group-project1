@@ -1321,6 +1321,7 @@ int main()
         suvFinalCar = Suv();
         sedanFinalCar = Sedan();
     }
+    cout << "check";
 
     fptr.close();
     delete[]carMileage;
