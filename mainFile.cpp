@@ -84,7 +84,7 @@ protected:
     double maxSpeed;
     double mileage;
     double fuelCapacity;
-    string fuelType;
+    string fuelType ;
     int year;
     string modelName;
     double odometerReading;
